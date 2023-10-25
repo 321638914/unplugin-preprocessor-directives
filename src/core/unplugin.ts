@@ -14,6 +14,9 @@ export const unpluginFactory: UnpluginFactory<UserOptions | undefined> = (
       return ctx.filter(id)
     },
     transform: (code, id) => ctx.transform(code, id),
+    transformInclude(id) {
+      return ctx.filter(id)
+    },
     vite: {
       configResolved(config) {
         ctx.env = { ...ctx.env, ...config.env }
